@@ -1,5 +1,27 @@
+/* Assigning variables here. Its done so cuz in case we change the colour, we dont have to go every single place where it is */
+:root {
+    --clr-primary: hsl(158, 36%, 37%);
+    --clr-secondary: hsl(30, 38%, 92%);
+
+    --clr-neutral-900: hsl(212, 21%, 14%);
+    --clr-neutral-400: hsl(228, 12%, 48%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-active: hsl(158, 42%, 18%);
+    /*  numbering is a design token convention. Higher being darker */
+
+    --ff-accent: 'Fraunces', serif;
+    --ff-base: 'Montserrat', sans-serif;
+    --fw-regular: 500;
+    --fw-bold: 700;
+}
+
+
+/* CSS DEFAULT RESET */
+
 /* An intuitive box-sizing model. This will ensure the inner box doesnt grow bigger than the outer box, giving weird look. * applies it everywhere. */
-*, *::before, *::after {
+*,
+ *::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -23,7 +45,7 @@ body {
         line-height: calc(1em + 0.5rem); 
     Instead of calculating the line height by multiplying the font-size with a number like 1.5, this alternative uses the font-size as a base, and adds a fixed amount of space to each line. */
 
-    /* Improve text rendering, makes the text easier to read*/
+    /* Improves text rendering, makes the text easier to read*/
     -webkit-font-smoothing: antialiased;
 }
 
@@ -46,7 +68,7 @@ p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
 }
 
-/* Improve line wrapping */
+
 p {
 /* Makes sure that the final line of text has atleast two words so it doesnt look bad */
     text-wrap: pretty;
@@ -56,24 +78,41 @@ h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
 }
 
-/* for further explanation, refer https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* For further explanation, refer https://www.joshwcomeau.com/css/custom-css-reset/ */
 
-p {
-    font-family: 'Montserrat' ;
-    color: hsl(228, 12%, 48%);
+
+/* CUSTOM STYLING */
+body {
+    font-family: var(--ff-base);
+    font-weight: var(--fw-regular);
+    font-size: 14px;
+    color: var(--clr-neutral-400);
+    background-color: var(--clr-secondary);
+
+    display: grid;
+    place-content: center;
+    margin: 1rem;
 }
 
-h1 {
-    font-family: 'Fraunces';
-    color: hsl(212, 21%, 14%);
+.flex-group {
+    display: flex;
+    gap: 1rem;
+    flex: wrap;
+}
+.product {
+    background-color: var(--clr-neutral-100);
+    border-radius: 0.5rem;
+    overflow: hidden;
 }
 
-footer {
-    font-family: 'Montserrat' ;
-    background-color: hsl(158, 36%, 37%);
-    color: whitesmoke;
+.product__content {
+    display: grid;
+    gap: 1rem;
+    padding : 1.5rem;
 }
 
-a {
-    color: white;
+.product__title {
+    font-family: var(--ff-accent);
+    color: var(--clr-neutral-900);
+    line-height: 1          ;
 }
