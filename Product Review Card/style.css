@@ -20,7 +20,7 @@
 
 /* An intuitive box-sizing model. This will ensure the inner box doesnt grow bigger than the outer box, giving weird look. * applies it everywhere. */
 *,
- *::before,
+*::before,
 *::after {
     box-sizing: border-box;
 }
@@ -98,6 +98,7 @@ body {
     display: flex;
     gap: 1rem;
     flex: wrap;
+    align-items: center;
 }
 .product {
     background-color: var(--clr-neutral-100);
@@ -115,4 +116,38 @@ body {
     font-family: var(--ff-accent);
     color: var(--clr-neutral-900);
     line-height: 1          ;
+}
+
+.product__price {
+    font-size: 2rem;
+    font-family: var(--ff-accent);
+    font-weight: 700;
+    color: var(--clr-primary);
+}
+
+.button {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--clr-neutral-100);
+    background-color: var(--clr-primary);
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    font-weight: var(--fw-bold);
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.button:is(:hover, :focus) {
+    background-color: var(--clr-active);
+}
+
+.button[data-icon="shopping-cart"]::before {
+    content: "";
+    background-image: url("images/icon-cart.svg");
+    width: 15px;
+    height: 16px;
 }
