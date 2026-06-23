@@ -40,6 +40,7 @@
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -90,14 +91,15 @@ h1, h2, h3, h4, h5, h6 {
 body {
     font-family: var(--ff-base);
     font-weight: var(--fw-regular);
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--clr-neutral-400);
     background-color: var(--clr-secondary);
 
     display: grid;
-    place-content: center;
+    place-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
     /* place-content needs exact vertical space to drop the card in the middle */
-    margin: 1rem;
 }
 
 .flex-group {
@@ -114,14 +116,15 @@ body {
     border-radius: 0.5rem;
     overflow: hidden;
     display: grid;
-    max-width: 600px;
+    max-width: 375px;
 }
 
 @media(min-width: 600px) {
     .product {
         grid-template-columns: 1fr 1fr; 
         /* fr is fractional unit. this is telling the browser to split 2 columns of equal width, or 50-50. */
-        --content-spacing: 2rem
+        --content-spacing: 2rem;
+        max-width: 600px;
     }
 }
 
@@ -181,3 +184,9 @@ body {
     But, the invisible tag doesnt contain anything, said by "content: "";". And this tiny canvas is 15x16 px big. */
 
     /* NOTE: 'content' property is the ignition switch for pseudo elements. */
+
+.product img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
